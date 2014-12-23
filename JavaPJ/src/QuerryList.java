@@ -15,4 +15,10 @@ public class QuerryList {
 		MySQL_DB db = new MySQL_DB();
 		return db.executeSQL(sql);
 	}
+	public static LoginUser LoginQuerry2(String UserID, String UserPW, String command){
+		//ログインIDと取得件数を取得するSQL文
+		String sql = "select * from user_masta where user_id = '"+ UserID +"' and user_pw = '"+ UserPW +"'";
+		MySQL_DB db = new MySQL_DB();
+		return db.executeSQL(sql, command);
+	}
 }

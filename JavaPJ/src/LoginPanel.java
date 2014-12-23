@@ -63,12 +63,18 @@ public class LoginPanel extends JPanel implements ActionListener {
 			System.out.println("UserID : " + UserID_Text.getText());
 			System.out.println("UserPW : " + password);
 
-			this.userID = QuerryList.LoginQuerry(UserID_Text.getText(), password);
-			System.out.println("取得ユーザー: " + this.userID);
-			//ユーザーが取得できないときの処理
-			if(this.userID != null){
+//			this.userID = QuerryList.LoginQuerry(UserID_Text.getText(), password);
+//			System.out.println("取得ユーザー: " + this.userID);
+
+			LoginUser loginUser = QuerryList.LoginQuerry2(UserID_Text.getText(), password, "pushLoginBtn");
+//			if(this.userID != null){
+			System.out.println("loginUser : " + loginUser);
+			if(loginUser != null){
+				System.out.println("loginUser-ID : " + loginUser.getUserID());
+				System.out.println("loginUser-Name : " + loginUser.getUserName());
+				//ログインユーザーをセット
 				clearAll();
-				mainFrame.panelChange(this, mainFrame.panelName[1]);
+				mainFrame.panelChange(this, mainFrame.panelName[1], loginUser);
 			}
 			else{
 				JOptionPane.showMessageDialog(null, "ログインできませんでした。再度入力してください", "ログイン不可", JOptionPane.YES_OPTION);

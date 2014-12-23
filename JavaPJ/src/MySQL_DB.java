@@ -95,4 +95,48 @@ public class MySQL_DB {
 		}
 		return connectLoginUser;
 	}
+
+	public LoginUser executeSQL(String sql, String command){
+		LoginUser loginUser = null;
+		System.out.println("SQL取得処理");
+		//データベース接続状態の場合に処理をする
+		if(this.conn != null){
+			System.out.println("SQL取得処理-DB接続状態");
+			System.out.println("SQL：" + sql);
+			try {
+				this.pstmt = this.conn.prepareStatement(sql);
+				this.rs = this.pstmt.executeQuery();
+
+				System.out.println("データ取得後のパラメータセット処理");
+
+				if(command.equals("pushLoginBtn")){
+					if(this.rs.next()){
+						loginUser = new LoginUser();
+						loginUser.setUserID(rs.getString("user_id"));
+						loginUser.setUserName(rs.getString("user_name"));
+					}
+				}
+
+				this.rs.close();
+				this.pstmt.close();
+
+			} catch (SQLException e) {
+				System.out.println("SQL取得処理-エラー処理");
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+				return loginUser;
+			} finally {
+				if(this.conn != null){
+					System.out.println("Connectionクローズ処理");
+					try {
+						this.conn.close();
+					} catch (SQLException e) {
+						// TODO 自動生成された catch ブロック
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		return loginUser;
+	}
 }

@@ -13,6 +13,7 @@ public class Main extends JFrame {
 	 */
 	String[] panelName = {"LoginPanel", "textNextPanel"};
 	LoginPanel lp = new LoginPanel(this);
+	LoginUser loginUser = null;
 	testNextPanel tp = new testNextPanel(this);
 
 	private final static String FRAME_TITLE_NAME = "家計簿アプリケーション";
@@ -36,16 +37,17 @@ public class Main extends JFrame {
 	}
 
 	//パネルの切り替え
-	public void panelChange(JPanel panel, String nextPanel){
+	public void panelChange(JPanel panel, String nextPanel, LoginUser loginUser){
 		System.out.println("パネル切り替え処理");
 		//現在のパネルを非表示にする。
 		panel.setVisible(false);
-
+		this.loginUser = loginUser;
 		//遷移先のパネルを表示にする。
 		if(nextPanel.equals(panelName[0])){
 			lp.setVisible(true);
 		}
 		if(nextPanel.equals(panelName[1])){
+			tp.setUserLabel(loginUser);
 			tp.setVisible(true);
 		}
 	}
