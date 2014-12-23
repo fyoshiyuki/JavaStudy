@@ -48,7 +48,7 @@ public class LoginPanel extends JPanel implements ActionListener {
 
 		//ユーザーPWテキスト設定
 		this.add(UserPW_PText);
-		UserPW_PText.setEchoChar('*');
+		UserPW_PText.setEchoChar('＊');
 		UserPW_PText.setBounds(130,200,200,30);
 
 		//ログインボタンの設定
