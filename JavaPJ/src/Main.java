@@ -12,13 +12,11 @@ public class Main extends JFrame {
 	 * 画面遷移対象のパネル生成
 	 */
 	static String[] panelName = {"LoginPanel", "textNextPanel"};
-	private static String[] frameTitleName = {	"家計簿アプリケーション(ログイン画面)",
-												"家計簿アプリケーション(テスト画面)"
-							  				 };
+	private static String[] frameTitleName = { "家計簿アプリケーション(ログイン画面)",
+                                               "家計簿アプリケーション(テスト画面)"};
 	LoginPanel lp = new LoginPanel(this);
 	LoginUser loginUser = null;
 	testNextPanel tp = new testNextPanel(this);
-	private final static String FRAME_TITLE_NAME = "家計簿アプリケーション";
 
 	//フレームと初期パネルの設定
 	public static void main(String[] args) {
