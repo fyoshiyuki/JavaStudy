@@ -86,7 +86,8 @@ public class LoginPanel extends JPanel implements ActionListener {
 				System.out.println("loginUser-Name : " + loginUser.getUserName());
 				//ログインユーザーをセット
 				clearAll();
-				mainFrame.panelChange(this, mainFrame.panelName[1], loginUser);
+				mainFrame.setLoginUser(loginUser);
+				mainFrame.panelChange(this, mainFrame.panelName[1]);
 			}
 			else{
 				JOptionPane.showMessageDialog(null, "ログインできませんでした。再度入力してください", "ログイン不可", JOptionPane.YES_OPTION);

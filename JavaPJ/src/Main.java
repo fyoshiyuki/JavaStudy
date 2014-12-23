@@ -37,11 +37,10 @@ public class Main extends JFrame {
 	}
 
 	//パネルの切り替え
-	public void panelChange(JPanel panel, String nextPanel, LoginUser loginUser){
+	public void panelChange(JPanel panel, String nextPanel){
 		System.out.println("パネル切り替え処理");
 		//現在のパネルを非表示にする。
 		panel.setVisible(false);
-		this.loginUser = loginUser;
 		//遷移先のパネルを表示にする。
 		if(nextPanel.equals(panelName[0])){
 			this.setTitle(frameTitleName[0]);
@@ -52,5 +51,13 @@ public class Main extends JFrame {
 			tp.setUserLabel(loginUser);
 			tp.setVisible(true);
 		}
+	}
+
+	/**
+	 * ログインユーザーの設定を行います。
+	 * @param loginUser
+	 */
+	public void setLoginUser(LoginUser loginUser){
+		this.loginUser = loginUser;
 	}
 }

@@ -45,7 +45,8 @@ public class testNextPanel extends JPanel implements java.awt.event.ActionListen
 		// TODO 自動生成されたメソッド・スタブ
 		if(e.getSource() == returnBtn){
 			System.out.println("* 戻るボタン処理 *");
-			mainFrame.panelChange(this, mainFrame.panelName[0], null);
+			mainFrame.setLoginUser(null);
+			mainFrame.panelChange(this, mainFrame.panelName[0]);
 		}
 	}
 
