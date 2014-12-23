@@ -1,5 +1,7 @@
 import java.awt.*;
+
 import javax.swing.*;
+
 import java.awt.event.*;
 
 /**
@@ -10,6 +12,8 @@ import java.awt.event.*;
 public class LoginPanel extends JPanel implements ActionListener {
 	private Main mainFrame = null;
 	private String userID = null;
+	private JLabel messageLabel_1 = new JLabel("ユーザーIDとユーザーPWを入力して下さい。入力後、「ログイン」ボタンを押してください。");
+	private JLabel messageLabel_2 = new JLabel("※ユーザーIDまたはユーザーPWがわからない場合、管理者へお問い合わせください。");
 	private JLabel UserID_Label = new JLabel("ユーザーＩＤ");
 	private JLabel UserPW_Label = new JLabel("ユーザーＰＷ");
 	private JTextField UserID_Text = new JTextField();
@@ -18,31 +22,39 @@ public class LoginPanel extends JPanel implements ActionListener {
 
 	public LoginPanel(Main mainFrame){
 		this.mainFrame = mainFrame;
-		this.setBounds(0, 0, 400, 400);
-		this.setBackground(Color.orange);
+		this.setBounds(0, 0, 700, 400);
+		this.setBackground(Color.LIGHT_GRAY);
 		this.setLayout(null);
+
+		//メッセージラベル1設定
+		this.add(messageLabel_1);
+		messageLabel_1.setBounds(30, 50, 800, 20);
+
+		//メッセージラベル2設定
+		this.add(messageLabel_2);
+		messageLabel_2.setBounds(30, 80, 800, 20);
 
 		//ユーザーIDラベル設定
 		this.add(UserID_Label);
-		UserID_Label.setBounds(30, 80, 100, 20);
+		UserID_Label.setBounds(30, 150, 100, 20);
 
 		//ユーザーPWラベル設定
 		this.add(UserPW_Label);
-		UserPW_Label.setBounds(30, 160, 100, 20);
+		UserPW_Label.setBounds(30, 200, 100, 20);
 
 		//ユーザーIDテキスト設定
 		this.add(UserID_Text);
-		UserID_Text.setBounds(130,80,150,30);
+		UserID_Text.setBounds(130,150,200,30);
 
 		//ユーザーPWテキスト設定
 		this.add(UserPW_PText);
 		UserPW_PText.setEchoChar('*');
-		UserPW_PText.setBounds(130,160,150,30);
+		UserPW_PText.setBounds(130,200,200,30);
 
 		//ログインボタンの設定
 		this.add(Login_Button);
 		Login_Button.setSize(new Dimension(100,30));
-		Login_Button.setLocation(30, 230);
+		Login_Button.setLocation(230, 280);
 
 		//対象コンポーネントのイベント設定
 		Login_Button.addActionListener(this);

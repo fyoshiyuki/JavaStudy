@@ -18,7 +18,7 @@ public class testNextPanel extends JPanel implements java.awt.event.ActionListen
 
 	public testNextPanel(Main mainFrame){
 		this.mainFrame = mainFrame;
-		this.setBounds(0, 0, 400, 400);
+		this.setBounds(0, 0, 700, 400);
 		this.setBackground(Color.BLUE);
 		this.setLayout(null);
 
@@ -28,15 +28,15 @@ public class testNextPanel extends JPanel implements java.awt.event.ActionListen
 
 		this.add(loginUserIDLabel);
 		loginUserIDLabel.setForeground(Color.WHITE);
-		loginUserIDLabel.setBounds(200, 60, 200, 30);
+		loginUserIDLabel.setBounds(400, 60, 200, 30);
 
 		this.add(loginUserNameLabel);
 		loginUserNameLabel.setForeground(Color.WHITE);
-		loginUserNameLabel.setBounds(200, 100, 200, 30);
+		loginUserNameLabel.setBounds(400, 100, 200, 30);
 
 		this.add(returnBtn);
 		returnBtn.setSize(new Dimension(70, 20));
-		returnBtn.setLocation(300,20);
+		returnBtn.setLocation(500,20);
 		returnBtn.addActionListener(this);
 
 	}

@@ -11,11 +11,13 @@ public class Main extends JFrame {
 	/**
 	 * 画面遷移対象のパネル生成
 	 */
-	String[] panelName = {"LoginPanel", "textNextPanel"};
+	static String[] panelName = {"LoginPanel", "textNextPanel"};
+	private static String[] frameTitleName = {	"家計簿アプリケーション(ログイン画面)",
+												"家計簿アプリケーション(テスト画面)"
+							  				 };
 	LoginPanel lp = new LoginPanel(this);
 	LoginUser loginUser = null;
 	testNextPanel tp = new testNextPanel(this);
-
 	private final static String FRAME_TITLE_NAME = "家計簿アプリケーション";
 
 	//フレームと初期パネルの設定
@@ -23,8 +25,8 @@ public class Main extends JFrame {
 		//ウィンドウの生成
 		Main mainFrame = new Main();
 		mainFrame.setLayout(null);
-		mainFrame.setBounds(10, 10, 400, 400);
-		mainFrame.setTitle(FRAME_TITLE_NAME);
+		mainFrame.setBounds(10, 10, 700, 400);
+		mainFrame.setTitle(frameTitleName[0]);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setResizable(false);
 		mainFrame.setVisible(true);
@@ -44,9 +46,11 @@ public class Main extends JFrame {
 		this.loginUser = loginUser;
 		//遷移先のパネルを表示にする。
 		if(nextPanel.equals(panelName[0])){
+			this.setTitle(frameTitleName[0]);
 			lp.setVisible(true);
 		}
 		if(nextPanel.equals(panelName[1])){
+			this.setTitle(frameTitleName[1]);
 			tp.setUserLabel(loginUser);
 			tp.setVisible(true);
 		}
